@@ -3,8 +3,10 @@ package com.project.RentSellBuyProject.Controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.RentSellBuyProject.Entity.HomePageDTO;
+import com.project.RentSellBuyProject.Entity.ProductDTO;
 import com.project.RentSellBuyProject.Entity.ProductEntity;
 import com.project.RentSellBuyProject.Services.ProductService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/public")
@@ -56,5 +59,18 @@ public class PublicController {
             e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/product/{myId}")
+    public ResponseEntity<?> findIndividualEntityById(@PathVariable ObjectId myId){
+        try {
+            ProductDTO productEntryUsingDTO = productService.findProuctByDTO(myId);
+            return new ResponseEntity<>(productEntryUsingDTO,HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+
     }
 }
