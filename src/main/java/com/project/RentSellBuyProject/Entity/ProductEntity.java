@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "Products")
@@ -19,9 +20,9 @@ public class ProductEntity {
 
     private Integer price;
 
-    private LocalDateTime startDate;
+    private Date startDate;
 
-    private LocalDateTime endDate;
+    private Date endDate;
 
     private String type;
 

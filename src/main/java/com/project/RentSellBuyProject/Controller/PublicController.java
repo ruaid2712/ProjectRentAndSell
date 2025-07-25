@@ -28,8 +28,7 @@ public class PublicController {
     public String health(){
         return "OK";
     }
-
-    @PostMapping(consumes = "multipart/form-data")
+    @PostMapping(value = "/create",consumes = "multipart/form-data")
     public ResponseEntity<?> createProduct(
             @RequestPart("product") String productInStringFormat,
             @RequestPart("image")MultipartFile[] multipartFiles) throws JsonProcessingException {

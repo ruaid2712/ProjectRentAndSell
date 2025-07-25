@@ -39,6 +39,7 @@ public class ProductService {
                     if (productEntity.getImageUrls() != null && !productEntity.getImageUrls().isEmpty()){
                         homePageDTO.setImageUrl(productEntity.getImageUrls().get(0));
                     }
+                    homePageDTO.setId(productEntity.getId().toHexString());
                     homePageDTO.setProductName(productEntity.getProductName());
                     homePageDTO.setPrice(productEntity.getPrice());
                     homePageDTO.setType(productEntity.getType());

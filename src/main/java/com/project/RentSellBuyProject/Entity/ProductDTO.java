@@ -4,6 +4,7 @@ import lombok.Data;
 import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -15,9 +16,9 @@ public class ProductDTO {
 
     private Integer price;
 
-    private LocalDateTime startDate;
+    private Date startDate;
 
-    private LocalDateTime endDate;
+    private Date endDate;
 
     private String type;
 }
